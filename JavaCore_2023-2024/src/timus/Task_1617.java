@@ -1,22 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Task_1617 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        short counter = 0;
         short count = scanner.nextShort();
-        scanner.nextLine();
+        Map<Integer, Integer> map = new HashMap<>(count);
 
-        String[] array = new String[count];
+        for (short i = 0; i < count; i++) {
+            Integer number = scanner.nextInt();
 
-        for (short i = 0; i < count; i++)
-            array[i] = scanner.nextLine();
-
-        String letter = scanner.nextLine();
-
-        for (String str : array) {
-            if (str.startsWith(letter))
-                System.out.println(str);
+            if (map.containsKey(number)) {
+                map.put(number, map.get(number) + 1);
+            } else {
+                map.put(number, 1);
+            }
         }
+
+        for (Integer value : map.values()) {
+            if (value >= 4) {
+                counter += (value / 4);
+            }
+        }
+
+        System.out.println(counter);
     }
 }
