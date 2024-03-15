@@ -1,8 +1,11 @@
+package timus;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Task_1617 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         short counter = 0;
